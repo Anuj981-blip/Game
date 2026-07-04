@@ -1,4 +1,4 @@
-# Rick's Survival
+# Protect the portal
 
 A rick and morty inspired space invaders style game built with HTML5 canvas, CSS3, and vanilla JavaScript. Dodge falling Mortys, blast them with pickle shots, collect power-ups, and fight off Boss Mortys for as long as you can.
 
