@@ -73,3 +73,5 @@ Dropped by defeated Mortys (and guaranteed from bosses):
 - Game state lives in a handful of plain JS files under `src/js/`: `rick.js` (player), `bullets.js` (player projectiles + collision), `enemies.js` (regular enemies, boss, boss projectiles), `powerups.js` (drops and effects), `tour.js` (onboarding), and `game.js` (main loop, HUD, modes, game state).
 - High scores persist via `localStorage`, scoped per game mode.
 
+## ALl Assets are from https://www.spriters-resource.com/mobile/pocketmortys
+
