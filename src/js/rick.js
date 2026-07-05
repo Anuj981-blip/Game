@@ -74,6 +74,15 @@ class Rick {
   }
 
   rickNewPos() {
+    // Acceleration is applied once per frame based on which keys are
+    // currently held, rather than on keydown repeat events - key-repeat
+    // timing varies a lot between browsers (Chrome/Safari/etc.), so
+    // driving movement off it made speed inconsistent and jittery.
+    if (moveLeft) this.speedX -= this.accel;
+    if (moveRight) this.speedX += this.accel;
+    if (moveUp) this.speedY -= this.accel;
+    if (moveBackward) this.speedY += this.accel;
+
     this.speedX = Math.max(-this.maxSpeed, Math.min(this.maxSpeed, this.speedX));
     this.speedY = Math.max(-this.maxSpeed, Math.min(this.maxSpeed, this.speedY));
 

@@ -10,6 +10,24 @@ const MORTY_SPRITES = [
 ];
 const BOSS_SPRITE = 'evil-morty.png';
 
+// Preload every sprite ONCE and reuse the same Image objects every frame.
+// Creating `new Image()` inside the draw loop (the previous approach) forces
+// a fresh decode per enemy per frame, which is what caused the browser-
+// dependent jank/slowdown - Chrome and Safari schedule that decode work
+// very differently, so the same wasteful code looked like "lag" in one and
+// "slowness" in the other.
+const spriteCache = {};
+const getSprite = (filename) => {
+  if (!spriteCache[filename]) {
+    const img = new Image();
+    img.src = 'src/images/' + filename;
+    spriteCache[filename] = img;
+  }
+  return spriteCache[filename];
+};
+MORTY_SPRITES.forEach(getSprite);
+getSprite(BOSS_SPRITE);
+
 // Enemy "kinds" give the regular spawns distinct strategic identities.
 const ENEMY_KINDS = {
   normal:   { hp: 1, sizeMult: 1,    speedMult: 1,    scoreValue: 5,  tint: null,      chance: 0.45 },
@@ -54,8 +72,7 @@ class Enemies {
   }
 
   drawEnemies() {
-    const img = new Image();
-    img.src = 'src/images/' + MORTY_SPRITES[this.spriteIdx];
+    const img = getSprite(MORTY_SPRITES[this.spriteIdx]);
     this.y += this.speedY;
     if (this.zigzag) {
       this.x += Math.sin((frames - this.birthFrame) * this.zigzagFreq) * this.zigzagAmp;
@@ -102,8 +119,7 @@ class Boss {
   }
 
   drawEnemies() {
-    const img = new Image();
-    img.src = 'src/images/' + BOSS_SPRITE;
+    const img = getSprite(BOSS_SPRITE);
 
     if (this.phase === "entering") {
       this.y += 2;

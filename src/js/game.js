@@ -65,19 +65,15 @@ document.onkeydown = function (e) {
   switch (e.keyCode) {
     case 38: // up
       moveUp = true;
-      bigRick.speedY -= bigRick.accel * 3;
       break;
     case 40: // down
       moveBackward = true;
-      bigRick.speedY += bigRick.accel * 3;
       break;
     case 37: // left
       moveLeft = true;
-      bigRick.speedX -= bigRick.accel * 3;
       break;
     case 39: // right
       moveRight = true;
-      bigRick.speedX += bigRick.accel * 3;
       break;
     case 32: // space - fire
       firing = true;
@@ -350,8 +346,11 @@ window.onload = function () {
   }
 
   document.getElementById("start-button").onclick = function (event) {
+    if (gameStarted && !gameOver) return; // already running - ignore extra clicks
+    window.cancelAnimationFrame(requestId);
     if (modeSelect) currentMode = modeSelect.value;
     resetGameState();
+    pauseGame = false;
     gameStarted = true;
     themeSong.currentTime = 0;
     themeSong.play();
