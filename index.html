@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Rick's Survival</title>
+  </head>
+  <body>
+    <section class="nav">
+      <img src="./src/images/simple-ricks.png" alt="simple-ricks" id="simple-ricks" />
+      <img src="./src/images/logo.png" alt="rick-and-morty-logo" id="logo" />
+      <img src="./src/images/orange-morty.png" alt="orange-morty" />
+    </section>
+
+    <section class="container">
+      <div class="left-column">
+        <img src="./src/images/freak-rick.png" alt="freak-rick" height="220px" id="freak-rick"/>
+
+        <div class="mode-box">
+          <label for="mode-select">Game mode:</label>
+          <select id="mode-select">
+            <option value="classic">Classic</option>
+            <option value="hardcore">Hardcore</option>
+            <option value="timeattack">Time Attack (90s)</option>
+          </select>
+        </div>
+
+        <div class="volume-box">
+          <label for="music-volume">Music</label>
+          <input type="range" id="music-volume" min="0" max="100" value="70" />
+          <label for="sfx-volume">SFX</label>
+          <input type="range" id="sfx-volume" min="0" max="100" value="80" />
+        </div>
+
+        <div class="button-box">
+          <button id="start-button">Start Game</button>
+          <button id="pause-button">Pause</button>
+          <button id="restart-button">Restart</button>
+        </div>
+        <div class="button-box">
+          <button id="tour-button">How to Play</button>
+          <button id="fullscreen-button">Fullscreen</button>
+        </div>
+      </div>
+
+      <div id="game-container">
+        <canvas id="game-board" width="800" height="550"></canvas>
+        <div id="tour-overlay" class="hidden">
+          <div id="tour-box">
+            <h2 id="tour-title"></h2>
+            <p id="tour-text"></p>
+            <div id="tour-nav">
+              <button id="tour-prev">Back</button>
+              <button id="tour-next">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./src/js/rick.js"></script>
+    <script src="./src/js/bullets.js"></script>
+    <script src="./src/js/enemies.js"></script>
+    <script src="./src/js/powerups.js"></script>
+    <script src="./src/js/tour.js"></script>
+    <script src="./src/js/game.js"></script>
+  </body>
+</html>
