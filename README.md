@@ -3,6 +3,7 @@
 A rick and morty inspired space invaders style game built with HTML5 canvas, CSS3, and vanilla JavaScript. Dodge falling Mortys, blast them with pickle shots, collect power-ups, and fight off Boss Mortys for as long as you can.
 
 
+<img width="1469" height="831" alt="Screenshot 2026-07-05 at 8 33 39 PM" src="https://github.com/user-attachments/assets/2058e7ea-846e-416b-bf62-8e030f90084d" />
 
 ## Story
 
