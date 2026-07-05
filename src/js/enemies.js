@@ -193,8 +193,8 @@ const enemySpawnInterval = () => {
 };
 
 const MAX_ENEMIES_DURING_BOSS = 2;
-const BOSS_SCORE_INTERVAL = 120;
-const BOSS_COOLDOWN_FRAMES = 25 * 60; // at least 25s of breathing room between bosses
+const BOSS_SCORE_INTERVAL = 60;
+const BOSS_COOLDOWN_FRAMES = 12 * 60; // ~12s of breathing room between bosses
 let bossCooldownUntil = 0;
 
 const addNewEnemiesToEnemiesArray = () => {

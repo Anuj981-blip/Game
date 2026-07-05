@@ -1,6 +1,6 @@
 const TOUR_STEPS = [
   {
-    title: "Welcome to Rick's Survival",
+    title: "Welcome to Protect the Portal",
     text: "Dodge falling Mortys, shoot them with pickle blasts, and survive as long as you can. Let's walk through the controls.",
   },
   {
@@ -29,7 +29,7 @@ const TOUR_STEPS = [
   },
   {
     title: "Parry",
-    text: "Press Shift right as a boss bullet reaches you to parry it: the bullet gets reflected back and slams into the boss for heavy damage. Parry only works against boss bullets during a boss fight \u2014 it does nothing against regular falling Mortys. It also has a short cooldown, so time it carefully.",
+    text: "During a boss fight, press Shift to open a short parry window (about a quarter of a second). If a boss bullet hits you during that window, it gets reflected back and slams into the boss for heavy damage instead of hurting you. After you parry, it needs about a second to recharge \u2014 watch the \"PARRY READY\" bar under your lives to know when you can use it again. Parry only affects boss bullets; it does nothing against regular falling Mortys.",
   },
   {
     title: "Game modes & settings",

@@ -160,11 +160,8 @@ const drawHud = () => {
   if (bigRick.powerTimer > 0) { drawBadge(20, badgeY, "POWER x2", "#ff6d00"); badgeY += 24; }
 
   if (activeBoss) {
-    const parryText = bigRick.parryCooldown > 0 ? `PARRY: ${Math.ceil(bigRick.parryCooldown / 60 * 10) / 10}s` : "PARRY READY (Shift)";
-    ctx.fillStyle = bigRick.parryCooldown > 0 ? "#9e9e9e" : "#ffeb3b";
-    ctx.font = "16px Ricks, sans-serif";
-    ctx.fillText(parryText, 20, badgeY);
-    badgeY += 24;
+    drawParryStatus(20, badgeY);
+    badgeY += 46;
   }
 
   if (banner) {
@@ -182,6 +179,36 @@ const drawBadge = (x, y, text, color) => {
   ctx.fillStyle = color;
   ctx.font = "16px Ricks, sans-serif";
   ctx.fillText(text, x, y);
+};
+
+const PARRY_COOLDOWN_MAX = 55; // must match bigRick.tryParry()
+
+const drawParryStatus = (x, y) => {
+  const boxWidth = 170;
+  const ready = bigRick.parryCooldown <= 0;
+
+  ctx.save();
+  ctx.font = "16px Ricks, sans-serif";
+  ctx.fillStyle = ready ? "#ffeb3b" : "#bdbdbd";
+  ctx.fillText(ready ? "PARRY READY \u2014 Shift!" : "PARRY RECHARGING", x, y);
+
+  // cooldown progress bar
+  const barY = y + 6;
+  ctx.fillStyle = "#222";
+  ctx.fillRect(x, barY, boxWidth, 8);
+  const filled = ready ? boxWidth : boxWidth * (1 - bigRick.parryCooldown / PARRY_COOLDOWN_MAX);
+  ctx.fillStyle = ready ? "#ffeb3b" : "#64b5f6";
+  ctx.fillRect(x, barY, filled, 8);
+  ctx.strokeStyle = "#fff";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(x, barY, boxWidth, 8);
+
+  if (!ready) {
+    ctx.font = "13px Ricks, sans-serif";
+    ctx.fillStyle = "#eee";
+    ctx.fillText(`${(bigRick.parryCooldown / 60).toFixed(1)}s`, x + boxWidth + 8, y);
+  }
+  ctx.restore();
 };
 
 const enemiesLeaked = () => {
