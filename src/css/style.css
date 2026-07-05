@@ -1,0 +1,270 @@
+@font-face {
+  font-family: "Ricks";
+  src: url("./font/rickfont.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 130px;
+  margin-bottom: 4px;
+  background: rgb(32, 178, 170, 0.7);
+}
+
+.nav img {
+  width: 120px;
+  height: 100px;
+  padding-left: 25px;
+}
+
+#logo {
+  width: 400px;
+  height: 110px;
+}
+
+#simple-ricks{
+  width: 250px;
+  height: 200px;
+  padding-left: -50px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.image-controls {
+  display: flex;
+}
+
+#freak-rick {
+  padding-left: 10px;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+#start-button,
+#pause-button,
+#restart-button {
+  width: 123px;
+  height: 60px;
+  border-radius: 10%;
+  color: white;
+  font-weight: 500;
+  font-size: 19px;
+  background: lightseagreen;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#game-board {
+  background-image: url("../images/background-initial3.png");
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 2%;
+}
+
+.controls-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+  margin-top: -60px;
+}
+
+.controls-subdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls-subdiv img {
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.pickles {
+  display: flex;
+  justify-content: space-around;
+}
+
+#i-am-pickle-rick {
+  width: 50px;
+  height: 70px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.controls-style {
+  font-family: Ricks;
+  font-size: 30px;
+  color: lightseagreen;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+#keyboard-arrows {
+  width: 110px;
+  height: 110px;
+}
+
+#spacebar {
+  width: 100px;
+  height: 50px;
+  padding-top: 20px;
+}
+
+.mode-box {
+  margin: 10px;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.mode-box select {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.left-column {
+  padding: 10px;
+  min-width: 260px;
+}
+
+#freak-rick {
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.volume-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 14px 10px;
+  color: #1b1b2f;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.volume-box label {
+  font-weight: bold;
+  color: #1b1b2f;
+  margin-top: 6px;
+}
+
+.volume-box input[type="range"] {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+#game-container {
+  position: relative;
+  display: inline-block;
+}
+
+#game-container:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+#game-container:fullscreen #game-board {
+  width: auto;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+#tour-button, #fullscreen-button {
+  width: 123px;
+  height: 60px;
+  border-radius: 10%;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  background: mediumpurple;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#tour-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#tour-box {
+  background: #1b1b2f;
+  border: 2px solid lightseagreen;
+  border-radius: 12px;
+  padding: 24px 30px;
+  max-width: 480px;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#tour-box h2 {
+  color: #97ce4c;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+#tour-box p {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#tour-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tour-nav button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background: lightseagreen;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+  margin-left: 8px;
+}
